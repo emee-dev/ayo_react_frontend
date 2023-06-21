@@ -1,5 +1,4 @@
 import { useLocation, Navigate } from "react-router-dom";
-
 import NotAuthorized from "../pages/NotAuthorized";
 import useAuth from "../utils/context/useAuth";
 import { Outlet } from "react-router-dom";
@@ -18,7 +17,6 @@ const RequireAuth = ({ role }) => {
 		);
 
 	if (auth?.role !== role) return <NotAuthorized />;
-
 	return <Outlet />;
 };
 

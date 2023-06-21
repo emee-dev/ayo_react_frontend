@@ -8,7 +8,6 @@ import useAuth from "../utils/context/useAuth";
 
 const Layout = () => {
 	const { auth } = useAuth();
-	console.log(import.meta.env.DEV);
 
 	return (
 		<div>

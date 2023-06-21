@@ -14,7 +14,6 @@ import "./Calender.css";
 
 const Calender = () => {
 	const [events, setEvents] = useState([]);
-	const [noDataText, setNoDataText] = useState("");
 	const { viewType } = useContext(DashboardContext);
 	const { auth } = useAuth();
 	let userId = auth.userId;
@@ -52,10 +51,6 @@ const Calender = () => {
 	useEffect(() => {
 		if (viewType === "patient") PatientEvent();
 		if (viewType === "doctor") DoctorEvent();
-
-		// return () => {
-		// 	setNoData(false);
-		// };
 	}, []);
 
 	const handleEventClick = async (clickInfo) => {

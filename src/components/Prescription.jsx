@@ -5,14 +5,6 @@ import UserInfo from "@rsuite/icons/legacy/UserInfo";
 import NoDataPlaceHolder from "./NoData";
 import "./Prescription.css";
 
-// const NoPrescription = () => {
-// 	return (
-// 		<div className="no_prescription">
-// 			<div></div>
-// 		</div>
-// 	);
-// };
-
 const PrescriptionView = () => {
 	const { prescription } = useContext(DashboardContext);
 
