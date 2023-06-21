@@ -7,8 +7,8 @@
     "build": "npm install && vite build",
     "vite:dev": "vite",
     "vite:build": "vite build",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "vite:preview": "vite preview",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",

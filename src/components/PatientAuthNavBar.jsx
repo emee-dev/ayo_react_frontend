@@ -23,7 +23,7 @@ const PatientNavBar = () => {
 			</Nav>
 			<Nav pullRight>
 				<Nav.Item href="/patient" icon={<ChangeList />}>
-					LoggedIn As Patient
+					Goto Dashboard
 				</Nav.Item>
 				<Nav.Item onClick={() => handleLogout()} icon={<SignOut />}>
 					SignOut
