@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Container, Header, Content } from "rsuite";
+import { Container, Header, Content, Grid } from "rsuite";
 import NavBar from "../components/NavBar";
 import DoctorNavBar from "../components/DoctorAuthNavBar";
 import PatientNavBar from "../components/PatientAuthNavBar";
@@ -10,18 +10,13 @@ const Layout = () => {
 	const { auth } = useAuth();
 
 	return (
-		<div>
-			<Container>
-				<Header>
-					{!auth ? <NavBar /> : ""}
-					{auth?.role.toLowerCase() === "patient" ? <PatientNavBar /> : ""}
-					{auth?.role.toLowerCase() === "doctor" ? <DoctorNavBar /> : ""}
-				</Header>
-				<Content>
-					<Outlet />
-				</Content>
-			</Container>
-		</div>
+		<Grid style={{ width: "100vw" }}>
+			{!auth ? <NavBar /> : ""}
+			{auth?.role.toLowerCase() === "patient" ? <PatientNavBar /> : ""}
+			{auth?.role.toLowerCase() === "doctor" ? <DoctorNavBar /> : ""}
+
+			<Outlet />
+		</Grid>
 	);
 };
 

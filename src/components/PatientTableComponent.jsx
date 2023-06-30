@@ -2,15 +2,17 @@ import { useState, useContext, useEffect } from "react";
 import { Table, Button, Pagination } from "rsuite";
 import { Medical_Records } from "../utils/requests/Requests";
 import DashboardContext from "../utils/context/DashboardContext";
-import AuthProvider from "../utils/context/AuthProvider";
 import NoDataPlaceHolder from "./NoData";
+import useAuth from "../utils/context/useAuth";
 
 const { Column, HeaderCell, Cell } = Table;
 
 const PatientTableComponent = () => {
 	const [tableData, setTableData] = useState([]);
 
-	const { userId } = useContext(AuthProvider);
+	const { auth } = useAuth();
+	const userId = auth.userId;
+
 	const { changeView, toggleHeadText, setPrescription } =
 		useContext(DashboardContext);
 

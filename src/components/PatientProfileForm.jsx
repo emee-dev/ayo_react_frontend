@@ -1,6 +1,6 @@
 import { FlexboxGrid, Form, Row, Col, Button } from "rsuite";
 import { useState, useContext, useRef } from "react";
-import AuthProvider from "../utils/context/AuthProvider";
+import useAuth from "../utils/context/useAuth";
 import PatientUpdateForm from "../schema/PatientUpdateForm";
 import { config } from "../utils/config";
 
@@ -15,7 +15,8 @@ const PatientProfileForm = () => {
 	});
 	const [serverMessage, setServerMessage] = useState("");
 	const formRef = useRef();
-	const { userId } = useContext(AuthProvider);
+	const { auth } = useAuth();
+	let userId = auth.userId;
 
 	const updateReq = async () => {
 		try {

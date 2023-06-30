@@ -1,9 +1,8 @@
 import { Modal, Button, Form, DatePicker } from "rsuite";
 import { useState, useContext, useRef } from "react";
-import AuthProvider from "../utils/context/AuthProvider";
+import useAuth from "../utils/context/useAuth";
 import MedicalRecordSchema from "../schema/Medical_Record_Schema";
 import { config } from "../utils/config";
-
 
 const customStyle = {
 	display: "flex",
@@ -47,7 +46,8 @@ const MedicalRecordModal = ({ toggle, close, data, setModalType }) => {
 	});
 
 	const formRef = useRef();
-	const { userId } = useContext(AuthProvider);
+	const { auth } = useAuth();
+	let userId = auth.userId;
 
 	function clearInputs() {
 		setFormValue((prev) => {
@@ -196,7 +196,8 @@ const MedicalRecordModal = ({ toggle, close, data, setModalType }) => {
 
 const AppointmentModal = ({ toggle, close, data, setModalType }) => {
 	const [date, setDate] = useState(new Date());
-	const { userId } = useContext(AuthProvider);
+	const { auth } = useAuth();
+	let userId = auth.userId;
 
 	const submit = async () => {
 		try {

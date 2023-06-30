@@ -4,3 +4,59 @@
 #root {
   font-family: 'Poppins', sans-serif;
 }
+
+
+/* .navbar {
+  width: 100%;
+  background-color: red;
+} */
+
+.container {
+  display: grid;
+  width: 100vw;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 150px 1fr 1fr;
+  gap: 10px;
+  grid-template-areas:
+    "nav nav nav"
+    "sidebar main main"
+    "sidebar main main";
+}
+
+.navbar {
+  grid-area: nav;
+  width: 100%;
+}
+
+
+
+/* Dashboard */
+.content {
+  grid-area: main;
+  margin-top: 15px;
+  min-height: fit-content;
+}
+
+.header_container {
+  height: 60px;
+}
+
+.head_title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.head_title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+}
+
+.sidebar_item {
+  margin-top: 25px;
+  display: block;
+  margin-bottom: 10px;
+  /* margin-left: 10px; */
+}
