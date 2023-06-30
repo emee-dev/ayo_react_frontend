@@ -6,6 +6,7 @@ import { Outlet } from "react-router-dom";
 const RequireAuth = ({ role }) => {
 	const { auth } = useAuth();
 	const currentLocation = useLocation();
+	console.log({ from: currentLocation });
 
 	if (!auth)
 		return (
