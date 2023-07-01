@@ -9,7 +9,9 @@ const NavBar = () => {
 			<Navbar appearance="inverse">
 				<Col xs={18} sm={11} md={14} lg={17}>
 					<Nav>
-						<Nav.Item icon={<HomeIcon />}>Enugu State Hospital</Nav.Item>
+						<Nav.Item icon={<HomeIcon />}>
+							Nigerian Police Hospital Enugu
+						</Nav.Item>
 					</Nav>
 				</Col>
 				<Col xsHidden lg={4}>
