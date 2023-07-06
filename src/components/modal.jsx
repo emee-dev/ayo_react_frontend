@@ -199,8 +199,6 @@ const AppointmentModal = ({ toggle, close, data, setModalType }) => {
 	const { auth } = useAuth();
 	let userId = auth.userId;
 
-	console.log(userId);
-
 	const submit = async () => {
 		try {
 			let req = await fetch(`${config.BASE_URL}/doctor/appointments/create`, {
@@ -264,10 +262,12 @@ const AppointmentModal = ({ toggle, close, data, setModalType }) => {
 						<Form.Group controlId="appointment_date">
 							<Form.ControlLabel>Appointment Date</Form.ControlLabel>
 							<DatePicker
-								placement="top"
+								placement="right"
 								name="date"
+								placeholder="Select Date"
 								value={date}
 								onChange={setDate}
+								block
 							/>
 						</Form.Group>
 					</Form>

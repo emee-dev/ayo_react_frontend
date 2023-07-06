@@ -19,7 +19,7 @@ const Calender = () => {
 	let userId = auth.userId;
 
 	async function PatientEvent() {
-		let [error, req, patientEvent] = await patientAppointments(userId);
+		let [error, req, patientEvent, res] = await patientAppointments(userId);
 		if (error) return console.error(error);
 
 		if (req.status === 200) {
@@ -28,22 +28,25 @@ const Calender = () => {
 			setEvents(patientEvent);
 		} else {
 			return console.error(
-				"Request is not okay at file 'Calender.jsx' at Line '33'"
+				"Request is not okay at file 'Calender.jsx' at Line '31'",
+				res
 			);
 		}
 	}
 
 	async function DoctorEvent() {
-		let [error, req, doctorEvent] = await doctorAppointments(userId);
+		let [error, req, doctorEvent, res] = await doctorAppointments(userId);
 		if (error) return console.error(error);
 
 		if (req.status === 200) {
+			console.log(doctorEvent);
 			setEvents(doctorEvent);
 		} else if (req.status === 400) {
 			setEvents(doctorEvent);
 		} else {
 			return console.error(
-				"Request is not okay at file 'Calender.jsx' at Line '46'"
+				"Request is not okay at file 'Calender.jsx' at Line '48'",
+				res
 			);
 		}
 	}
@@ -60,7 +63,7 @@ const Calender = () => {
 			const eventId = clickInfo.event?.extendedProps?._id;
 			const [error, req, res] = await deleteEvent(eventId);
 			if (error) return console.error(error);
-			if (req.status !== 200) return console.error("Request is not okay");
+			if (req.status !== 200) return console.error("Request is not okay", res);
 			clickInfo.event.remove();
 		}
 	};
@@ -90,7 +93,7 @@ const Calender = () => {
 					plugins={[dayGridPlugin, ScrollBar]}
 					initialView="dayGridWeek"
 					dayMinWidth={80}
-					weekends={false}
+					weekends={true}
 					events={events}
 					eventClick={handleEventClick}
 					eventContent={renderEventContent}

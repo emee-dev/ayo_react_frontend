@@ -24,7 +24,7 @@ export const patientAppointments = async (patientId) => {
 			});
 		});
 
-		return [null, req, eventSource];
+		return [null, req, eventSource, res];
 	} catch (error) {
 		return [error];
 	}
@@ -55,7 +55,7 @@ export const doctorAppointments = async (doctorId) => {
 				});
 			});
 		});
-		return [null, req, eventSource];
+		return [null, req, eventSource, res];
 	} catch (error) {
 		return [error];
 	}
