@@ -25,7 +25,6 @@ const DoctorTableComponent = () => {
 	const FetchRequest = async () => {
 		let value = await SearchORAllPatients(page, limit, searchValue);
 
-		console.log(value);
 		setTableData((rest) => {
 			return [...value];
 		});
@@ -42,7 +41,7 @@ const DoctorTableComponent = () => {
 
 	useEffect(() => {
 		FetchRequest();
-		console.log("UseEffect Ran");
+		// console.log("UseEffect Ran");
 	}, [page, searchValue]);
 
 	const toggleModal = () => setToggle(false);

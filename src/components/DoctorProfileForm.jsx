@@ -59,7 +59,7 @@ const DoctorProfileForm = () => {
 		if (formRef.current.check()) {
 			let [error, req, res] = await updateReq();
 			if (error) return console.error(error);
-			if (req.status !== 200) return console.error("Request is not okay");
+			if (req.status !== 200) return console.error("Request is not okay", res);
 			setServerMessage(res.message);
 		}
 	};

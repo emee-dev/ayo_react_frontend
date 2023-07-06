@@ -1,5 +1,5 @@
 import { Modal, Button, Form, DatePicker } from "rsuite";
-import { useState, useContext, useRef } from "react";
+import { useState, useRef } from "react";
 import useAuth from "../utils/context/useAuth";
 import MedicalRecordSchema from "../schema/Medical_Record_Schema";
 import { config } from "../utils/config";
