@@ -1,25 +1,23 @@
 import { Schema } from "rsuite";
 
-const { StringType } = Schema.Types;
+const { StringType, NumberType } = Schema.Types;
 
 const MedicalRecordSchema = Schema.Model({
 	medication_name: StringType().isRequired(
 		"Please provide the name of the prescribed medication."
 	),
-	rpt: StringType()
-		.containsNumber(
-			"Please enter a valid number for the recommended repetition rate."
-		)
+	rpt: NumberType()
+		.containsNumber("Please enter a valid number for rpt.")
 		.isRequired(
 			"Please specify the recommended repetition rate for the medication."
 		),
-	dosage: StringType().isRequired(
+	dosage: NumberType().isRequired(
 		"Please indicate the prescribed dosage for the medication."
 	),
-	quantity: StringType()
+	quantity: NumberType()
 		.containsNumber("Please enter a valid number for the quantity.")
 		.isRequired("Please specify the quantity of medication prescribed."),
-	duration: StringType()
+	duration: NumberType()
 		.containsNumber("Please enter a valid number for the duration.")
 		.isRequired(
 			"Please provide the duration for which the medication should be taken."

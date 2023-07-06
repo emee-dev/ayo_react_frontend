@@ -79,7 +79,7 @@ const MedicalRecordModal = ({ toggle, close, data, setModalType }) => {
 			let req = await fetch(`${config.BASE_URL}/doctor/record`, {
 				method: "POST",
 				body: JSON.stringify({
-					patient_id: data._id,
+					patient_id: data.patient_id,
 					doctor_id: userId,
 					medication_name,
 					rpt,
@@ -102,7 +102,7 @@ const MedicalRecordModal = ({ toggle, close, data, setModalType }) => {
 		if (formRef.current.check()) {
 			const [error, req, res] = await submit();
 			if (error) return console.error(error);
-			if (req.status !== 200) return console.error("Request is not okay");
+			if (req.status !== 200) return console.error("Request is not okay", res);
 			clearInputs();
 			close();
 		}
@@ -199,13 +199,15 @@ const AppointmentModal = ({ toggle, close, data, setModalType }) => {
 	const { auth } = useAuth();
 	let userId = auth.userId;
 
+	console.log(userId);
+
 	const submit = async () => {
 		try {
 			let req = await fetch(`${config.BASE_URL}/doctor/appointments/create`, {
 				method: "POST",
 				body: JSON.stringify({
-					patient_id: data._id,
-					doctor_id: userId,
+					patientId: data.patient_id,
+					doctorId: userId,
 					date,
 				}),
 				headers: { "Content-Type": "application/json" },
@@ -220,7 +222,7 @@ const AppointmentModal = ({ toggle, close, data, setModalType }) => {
 	const handleSubmit = async () => {
 		const [error, req, res] = await submit();
 		if (error) return console.error(error);
-		if (req.status !== 200) return console.error("Request is not okay");
+		if (req.status !== 200) return console.error("Request is not okay", res);
 		close();
 	};
 	const changeModalType = (type) => setModalType(type);
